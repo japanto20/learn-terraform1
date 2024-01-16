@@ -13,7 +13,7 @@ resource "null_resource" "sample" {
   count = length(var.instances)
 }
 
-/*
+
 variable "instances1" {
   default = {
     frontend = {
@@ -33,4 +33,4 @@ variable "instances1" {
 
 resource "null_resource" "sample1" {
   for_each = var.instances1
-}*/
+}
