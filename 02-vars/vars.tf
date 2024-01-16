@@ -6,6 +6,7 @@ output "sample2" {
   value = var.sample1
 }
 
+
 variable "fruits" {
   default = ["apple", "banana", "orange"]
 }
