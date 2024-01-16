@@ -32,9 +32,9 @@ output "fruits_apple_quantity_with_name" {
   value = "Fruit Apple is having only ${var.fruits_with_quantity["apple"]} quantity"
 }
 
-variable "test1" {}
-output "test1" {
-  value = var.test1
+variable "test2" {}
+output "test3" {
+  value = var.test2
 }
 
 variable "env" {}
