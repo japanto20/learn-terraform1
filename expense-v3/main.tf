@@ -9,6 +9,7 @@ resource "aws_instance" "instances" {
 }
 
 resource "aws_route53_record" "frontend" {
+  for_each = var.components
   zone_id =  var.zone_id
   name    = "${each.value["name"]}-${var.env}"
   type    = "A"
