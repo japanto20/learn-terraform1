@@ -1,5 +1,5 @@
 variable "URL" {
-  Antony = "test.com"
+  default = "test.com"
 }
 
 output "URL" {
