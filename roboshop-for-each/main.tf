@@ -14,21 +14,21 @@ variable "instances" {
 }
 
 resource "aws_instance" "instance" {
-  count = length(var.instances)
+  for_each = var.instances
   ami           = "ami-09c813fb71547fc4f"
   instance_type = "t3.small"
   vpc_security_group_ids = ["sg-0e02eb30681e3cecb"]
   tags = {
-    Name = var.instances[count.index]
+    Name = each.key
   }
 
 }
 
 resource "aws_route53_record" "record" {
-  count = length(var.instances)
+  for_each = var.instances
   zone_id = "Z10277543R9LVZD9JGS0L"
-  name    = "${var.instances[count.index]}-dev.antodevops.online"
+  name    = "${each.key}-dev.antodevops.online"
   type    = "A"
   ttl     = "30"
-  records = [aws_instance.instance[count.index].private_ip]
+  records = [aws_instance.instance[each.key].private_ip]
 }
