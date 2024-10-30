@@ -9,7 +9,7 @@ resource "aws_instance" "instance" {
 }
 
 resource "aws_route53_record" "record" {
-  for_each = var.instances
+
   zone_id = "Z10277543R9LVZD9JGS0L"
   name    = "${var.component_name}-dev.antodevops.online"
   type    = "A"
